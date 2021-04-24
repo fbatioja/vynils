@@ -37,7 +37,7 @@ describe('PrizeService', () => {
       let prizeDetail = new PrizeDetail(
         i,
         faker.lorem.sentence(),
-        faker.lorem.sentence,
+        faker.lorem.sentence(),
         faker.lorem.sentence(),
         null
       );
