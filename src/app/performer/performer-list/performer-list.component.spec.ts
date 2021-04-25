@@ -11,7 +11,7 @@ describe('PerformerListComponent', () => {
   let component: PerformerListComponent;
   let fixture: ComponentFixture<PerformerListComponent>;
   let debug: DebugElement;
-  let mockPrizes: Array<PerfomerDetail>;
+  let mockPerformer: Array<PerfomerDetail>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,14 +24,14 @@ describe('PerformerListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PerformerListComponent);
     component = fixture.componentInstance;
-    mockPrizes = [];
-    mockPrizes.push(new PerfomerDetail(
+    mockPerformer = [];
+    mockPerformer.push(new PerfomerDetail(
       1,
       faker.lorem.sentence(),
       faker.lorem.sentence(),
       faker.lorem.sentence()
     ));
-    component.performers = mockPrizes;
+    component.performers = mockPerformer;
     fixture.detectChanges();
     debug = fixture.debugElement;
   });
