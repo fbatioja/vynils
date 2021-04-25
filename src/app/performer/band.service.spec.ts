@@ -5,7 +5,7 @@ import {AlbumService} from '../album/album.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {environment} from '../../environments/environment';
 import faker from 'faker';
-import {BandDetail} from './BandDetail';
+import {BandDetail} from './banddetail';
 
 describe('BandService', () => {
   let injector: TestBed;
