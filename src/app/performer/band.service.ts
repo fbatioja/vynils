@@ -3,7 +3,7 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Musician} from './musician';
-import {BandDetail} from './BandDetail';
+import {BandDetail} from './banddetail';
 
 @Injectable({
   providedIn: 'root'
