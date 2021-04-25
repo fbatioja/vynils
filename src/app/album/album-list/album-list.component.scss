@@ -1,3 +1,17 @@
+img.card-img-top
+{
+  height: 190px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+h5.card-title
+{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .card-album-list
 {
   width: 16rem;
