@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row pt-5">
+    <div class="col p-2" *ngFor="let album of albums">
+      <div class="card card-album-list">
+        <img src="{{album.cover}}" class="card-img-top" alt="...">
+        <div class="card-body p-2">
+          <h5 class="card-title font-weight-bold mb-1 album-name">{{album.name}}</h5>
+          <p class="card-text" *ngFor="let performer of album.performers">
+              {{performer.name}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

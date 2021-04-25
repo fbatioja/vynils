@@ -1,13 +1,16 @@
 import { Genre } from './genre.enum';
 import { Record_label } from './record_label.enum'
+import { Band } from '../performer/band';
+import { Musician } from '../performer/musician';
 
 export class Album {
-  private id: number;
-  private name: string;
-  private cover: string;
-  private releaseDate: Date;
-  private genre: Genre;
-  private recordLabel: Record_label;
+  id: number;
+  name: string;
+  cover: string;
+  releaseDate: Date;
+  genre: Genre;
+  recordLabel: Record_label;
+  performers: (Band | Musician)[];
 
   constructor(
     id: number,
@@ -16,6 +19,7 @@ export class Album {
     releaseDate: Date,
     genre: Genre,
     recordLabel: Record_label,
+
   ) {
     this.id = id;
     this.name = name;
