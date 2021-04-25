@@ -8,7 +8,7 @@ import { Album } from "./album";
 import { environment } from "../../environments/environment";
 import { Genre } from './genre.enum';
 import { Record_label } from './record_label.enum';
-import { AlbumDetail } from './albumDetail';
+import { AlbumDetail } from './albumdetail';
 
 describe('Service: Album', () => {
   let injector: TestBed;
@@ -46,8 +46,7 @@ describe('Service: Album', () => {
         faker.lorem.sentence(),
         faker.date.between('1900-01-01', '2021-01-05'),
         faker.random.arrayElement(Object.getOwnPropertyNames(Genre)),
-        faker.random.arrayElement(Object.getOwnPropertyNames(Record_label)),
-        null
+        faker.random.arrayElement(Object.getOwnPropertyNames(Record_label))
       );
 
       mockPosts.push(albumDetail);
