@@ -7,6 +7,7 @@ import {PrizeModule} from './prize/prize.module';
 import {HttpClientModule} from '@angular/common/http';
 import { AlbumModule } from './album/album.module';
 import {PerformerModule} from './performer/performer.module';
+import {CollectorModule} from './collector/collector.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {PerformerModule} from './performer/performer.module';
     PrizeModule,
     HttpClientModule,
     AlbumModule,
-    PerformerModule
+    PerformerModule,
+    CollectorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
