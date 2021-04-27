@@ -38,7 +38,7 @@ describe('Service: Collector', () => {
       let collectorDetail = new CollectorDetail(
         i,
         faker.lorem.sentence(),
-        faker.random.number(),
+        faker.datatype.number(),
         faker.internet.email(),
         null,
         null,

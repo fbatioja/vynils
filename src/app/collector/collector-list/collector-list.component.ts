@@ -13,14 +13,14 @@ export class CollectorListComponent implements OnInit {
   collectors: Array<CollectorDetail>
 
   ngOnInit() {
+    this.getCollectors();
   }
 
-  getAlbums(): void {
+  getCollectors(): void {
     this.collectorService.getCollectors()
       .subscribe(collectors => {
         this.collectors = collectors;
       });
   }
-
 
 }
