@@ -1,0 +1,20 @@
+<h2>Lista de premios</h2>
+<div class="accordion" id="prize-list">
+  <div *ngFor="let prize of prizes" class="card">
+    <div class="card-header" id="heading{{prize.id}}">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" [attr.data-target]="'#collapse' + prize.id" aria-expanded="false" [attr.aria-controls]="'collapse' + prize.id">
+          {{prize.name}}
+        </button>
+      </h2>
+    </div>
+    <div id="collapse{{prize.id}}" class="collapse" [attr.aria-labelledby]="'heading' + prize.id" data-parent="#prize-list">
+      <div class="card-body">
+        <h2>{{prize.organization}}</h2>
+        <p>{{prize.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -3,14 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {PrizeModule} from './prize/prize.module';
+import {HttpClientModule} from '@angular/common/http';
+import { AlbumModule } from './album/album.module';
+import {PerformerModule} from './performer/performer.module';
+import {CollectorModule} from './collector/collector.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PrizeModule,
+    HttpClientModule,
+    AlbumModule,
+    PerformerModule,
+    CollectorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

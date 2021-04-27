@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'front';
+  title = 'Black vynils';
+  componentActive = 'prizes';
+
+  viewComponent(component: string): void {
+    this.componentActive = component;
+  }
 }
