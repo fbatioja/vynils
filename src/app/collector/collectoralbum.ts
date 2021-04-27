@@ -1,11 +1,11 @@
-
+import {Album_status} from './album_status.enum';
 import {Album} from '../album/album';
 
 export class CollectorAlbum {
   id: number;
   album: Album;
   price: number;
-  status: number;
+  status: Album_status;
 
   constructor(
   id: number,

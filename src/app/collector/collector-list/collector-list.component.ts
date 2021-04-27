@@ -10,7 +10,7 @@ import { CollectorDetail } from '../collectordetail';
 export class CollectorListComponent implements OnInit {
 
   constructor(private collectorService: CollectorService) { }
-  collectors: Array<CollectorDetail>
+  collectors: Array<CollectorDetail>;
 
   ngOnInit() {
     this.getCollectors();
