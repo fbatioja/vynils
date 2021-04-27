@@ -11,7 +11,7 @@ export class CollectorAlbum {
   id: number,
   album: Album,
   price: number,
-  status: number
+  status: Album_status
   ){
     this.id = id;
     this.album = album;
