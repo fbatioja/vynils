@@ -7,9 +7,6 @@ import {By} from '@angular/platform-browser';
 import {PrizeDetail} from '../prizedetail';
 import faker from 'faker';
 
-class prizeDetail {
-}
-
 describe('PrizesListComponent', () => {
   let component: PrizesListComponent;
   let fixture: ComponentFixture<PrizesListComponent>;
