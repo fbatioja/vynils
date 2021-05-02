@@ -1,0 +1,31 @@
+img.card-img-top
+{
+  height: 22em;
+  object-fit: cover;
+  object-position: center center;
+}
+
+img.img-photo-list
+{
+  height: 10em;
+  object-fit: cover;
+  object-position: center center;
+}
+
+h5.card-title
+{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.info-performer
+{
+  padding: 0 ;
+  text-align: center;
+}
+
+.info-album dt {
+  color: #717D7E;
+}
+

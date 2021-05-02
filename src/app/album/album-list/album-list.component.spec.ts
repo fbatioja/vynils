@@ -35,7 +35,8 @@ describe('AlbumListComponent', () => {
       faker.lorem.sentence(),
       faker.date.between('1900-01-01', '2021-01-05'),
       faker.random.arrayElement(Object.getOwnPropertyNames(Genre)),
-      faker.random.arrayElement(Object.getOwnPropertyNames(Record_label))
+      faker.random.arrayElement(Object.getOwnPropertyNames(Record_label)),
+      faker.lorem.sentence()
     ));
 
     component.albums = mockAlbums;
