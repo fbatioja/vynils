@@ -1,0 +1,43 @@
+<div class="card card-album-list col-12">
+  <img src="{{albumDetail.cover}}" class="card-img-top" alt="...">
+  <div class="card-body row">
+    <div class="col-12">
+      <h3 class="font-weight-bold album-name">{{albumDetail.name}}</h3>
+    </div>
+
+    <div class="col-lg-6 col-sm-12 info-album">
+      <dl>
+        <dt> Fecha de salida al mercado</dt>
+        <dd>{{ albumDetail.releaseDate |date:"longDate"}}</dd>
+        <hr>
+        <dt>Género</dt>
+        <dd>{{albumDetail.genre}}</dd>
+        <hr>
+        <dt>Descripción</dt>
+        <dd>{{albumDetail.description}}</dd>
+        <hr>
+        <dt>Casa discográfica</dt>
+        <dd>{{albumDetail.recordLabel}}</dd>
+      </dl>
+    </div>
+
+    <div class="col-lg-6">
+      <h3 class="font-weight-bold col-12 p-0">Artistas</h3>
+      <div class="card col-lg-6 col-sm-12 p-0" *ngFor="let performer of albumDetail.performers">
+        <img src="{{performer.image}}" class="img-photo-list" alt="...">
+        <div class="card-body info-performer">
+          <p class="card-text">{{performer.name}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-sm-12" *ngIf="albumDetail.tracks?.length  > 0">
+      <h3 class="font-weight-bold col-12 p-0">Tracks</h3>
+      <ul>
+        <li *ngFor="let track of albumDetail.tracks">
+          {{track.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

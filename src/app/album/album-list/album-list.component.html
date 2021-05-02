@@ -1,8 +1,8 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="selected==false">
   <div class="row pt-5">
     <div class="col p-2" *ngFor="let album of albums">
       <div class="card card-album-list">
-        <img src="{{album.cover}}" class="card-img-top" alt="...">
+        <img src="{{album.cover}}" class="card-img-top" alt="..." (click)="onSelected(album)">
         <div class="card-body p-2">
           <h5 class="card-title font-weight-bold mb-1 album-name">{{album.name}}</h5>
           <p class="card-text" *ngFor="let performer of album.performers">
@@ -13,3 +13,12 @@
     </div>
   </div>
 </div>
+
+
+<div class="container-fluid pt-5" *ngIf="selected">
+  <div class="row panel-detalle">
+    <button class="button-close" (click)="closeDetail()">X</button>
+    <app-album-detail [albumDetail]="selectedAlbum"></app-album-detail>
+  </div>
+</div>
+
