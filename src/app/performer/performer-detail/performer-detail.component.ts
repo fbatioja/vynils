@@ -9,7 +9,7 @@ import {MusicianDetail} from '../musiciandetail';
   styleUrls: ['./performer-detail.component.css']
 })
 export class PerformerDetailComponent implements OnInit {
-  @Input() performerDetail: BandDetail | MusicianDetail;
+  @Input() performerDetail: BandDetail | MusicianDetail = null;
   @Output()
   closeDetail = new EventEmitter<void>();
 

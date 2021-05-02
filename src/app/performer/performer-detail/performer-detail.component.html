@@ -1,19 +1,25 @@
-<div class="d-flex">
-  <h3 class="w-100">{{performerDetail.name}}</h3>
-  <button (click)="onClose()" type="button" class="close flex-shrink-1" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="row">
-  <div class="col-4">
-    <img class="w-100" src="{{performerDetail.image}}">
+<div *ngIf="performerDetail !== null" class="border mt-5 p-3">
+  <div class="d-flex">
+    <h3 id="performer-name" class="w-100">{{performerDetail.name}}</h3>
+    <button (click)="onClose()" type="button" class="close flex-shrink-1" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
-  <div class="col-8">
-    <span><b>Descripción</b></span>
-    <p>{{performerDetail.description}}</p>
-    <span>
-      {{performerDetail["birthDate"] | date: 'yyyy-MM-dd'}}
-      {{performerDetail["creationDate"] | date: 'yyyy-MM-dd'}}
-    </span>
+  <div class="row">
+    <div class="col-12 col-sm-4">
+      <img id="performer-image" class="w-100" src="{{performerDetail.image}}">
+    </div>
+    <div class="col-12 col-sm-8">
+      <dl>
+        <dt>Descripción</dt>
+        <dd>{{performerDetail.description}}</dd>
+        <dt id="creationDate" *ngIf="performerDetail.hasOwnProperty('creationDate')">Fecha de creación:</dt>
+        <dt id="birthDate" *ngIf="performerDetail.hasOwnProperty('birthDate')">Fecha de nacimiento:</dt>
+        <dd>
+          {{performerDetail["birthDate"] | date: 'yyyy-MM-dd'}}
+          {{performerDetail["creationDate"] | date: 'yyyy-MM-dd'}}
+        </dd>
+      </dl>
+    </div>
   </div>
 </div>
