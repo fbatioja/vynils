@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PerformerService } from '../performer.service';
-import { Band } from '../band';
-import { Musician } from '../musician';
+import {BandDetail} from '../banddetail';
+import {MusicianDetail} from '../musiciandetail';
 
 @Component({
   selector: 'app-performer-list',
@@ -11,9 +11,11 @@ import { Musician } from '../musician';
 export class PerformerListComponent implements OnInit {
 
   constructor(private performerService: PerformerService) { }
-  performers: (Band | Musician)[]=[];
+  performers: (BandDetail | MusicianDetail)[] = [];
+  selected: boolean;
+  selectedPerformer: BandDetail | MusicianDetail;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getPerformer();
   }
 
@@ -27,5 +29,15 @@ export class PerformerListComponent implements OnInit {
       .subscribe(performers => {
         this.performers = this.performers.concat(performers);
       });
+  }
+
+  onSelected(performer: BandDetail | MusicianDetail): void {
+    this.selected = true;
+    this.selectedPerformer = performer;
+  }
+
+  closeDetail(): void {
+    this.selected = false;
+    this.selectedPerformer = null;
   }
 }

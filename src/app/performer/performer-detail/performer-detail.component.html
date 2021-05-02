@@ -1,0 +1,19 @@
+<div class="d-flex">
+  <h3 class="w-100">{{performerDetail.name}}</h3>
+  <button (click)="onClose()" type="button" class="close flex-shrink-1" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="row">
+  <div class="col-4">
+    <img class="w-100" src="{{performerDetail.image}}">
+  </div>
+  <div class="col-8">
+    <span><b>Descripción</b></span>
+    <p>{{performerDetail.description}}</p>
+    <span>
+      {{performerDetail["birthDate"] | date: 'yyyy-MM-dd'}}
+      {{performerDetail["creationDate"] | date: 'yyyy-MM-dd'}}
+    </span>
+  </div>
+</div>
