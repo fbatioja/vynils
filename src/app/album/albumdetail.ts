@@ -1,6 +1,7 @@
 import {Album} from './album';
 import {Genre} from './genre.enum';
 import {Record_label} from './record_label.enum';
+import { Track } from './track';
 
 export class AlbumDetail extends Album {
   constructor(
@@ -9,9 +10,10 @@ export class AlbumDetail extends Album {
     cover: string,
     releaseDate: Date,
     genre: Genre,
-    recordLabel: Record_label
+    recordLabel: Record_label,
+    description: string
     ) {
-    super(id,name,cover,releaseDate,genre,recordLabel);
+    super(id,name,cover,releaseDate,genre,recordLabel, description);
   }
 }
 
