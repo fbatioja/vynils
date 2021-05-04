@@ -56,4 +56,27 @@ describe('BandService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(mockBands);
   });
+
+  it('getBandDetail() should return a band detail', () => {
+    let id = 100;
+
+    let mockBand = new BandDetail(
+      id,
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+      faker.date.between('1900-01-01', '2021-01-05'),
+      null,
+      null,
+      null
+    );
+
+    service.getBandDetail(id).subscribe((band) => {
+      expect(band.id).toBe(id);
+    });
+
+    const req = httpMock.expectOne(`${apiUrl}/${id}`);
+    expect(req.request.method).toBe('GET');
+    req.flush(mockBand);
+  });
 });

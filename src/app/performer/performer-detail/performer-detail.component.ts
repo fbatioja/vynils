@@ -1,4 +1,4 @@
-import {Component, EventEmitter,Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PerformerService} from '../performer.service';
 import {BandDetail} from '../banddetail';
 import {MusicianDetail} from '../musiciandetail';
