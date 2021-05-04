@@ -54,4 +54,26 @@ describe('MusicianService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(mockMusicians);
   });
+
+  it('getMusiciansDetail() should return a musician detail', () => {
+    let id = 100;
+
+    let MockMusician = new MusicianDetail(
+      id,
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+      faker.lorem.sentence(),
+      faker.date.between('1900-01-01', '2021-01-05'),
+      null,
+      null
+    );
+
+    service.getMusicianDetail(id).subscribe((musician) => {
+      expect(musician.id).toBe(id);
+    });
+
+    const req = httpMock.expectOne(`${apiUrl}/${id}`);
+    expect(req.request.method).toBe('GET');
+    req.flush(MockMusician);
+  });
 });

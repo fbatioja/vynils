@@ -3,6 +3,7 @@ img.card-img-top
   height: 190px;
   object-fit: cover;
   object-position: center center;
+  cursor: pointer;
 }
 
 h5.card-title
@@ -15,4 +16,22 @@ h5.card-title
 .card-album-list
 {
   width: 16rem;
+}
+
+.panel-detalle
+{
+  justify-content: end;
+}
+
+.button-close {
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  text-align: center;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  position: absolute;
+  z-index: 1;
+  margin-top: -1.5em;
 }

@@ -6,12 +6,13 @@ import { PerformerListComponent } from './performer-list.component';
 import { PerfomerDetail } from '../performerdetail';
 import { HttpClientModule } from '@angular/common/http';
 import faker from 'faker';
+import {BandDetail} from '../banddetail';
 
 describe('PerformerListComponent', () => {
   let component: PerformerListComponent;
   let fixture: ComponentFixture<PerformerListComponent>;
   let debug: DebugElement;
-  let mockPerformer: Array<PerfomerDetail>;
+  let mockPerformer: Array<BandDetail>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -25,11 +26,15 @@ describe('PerformerListComponent', () => {
     fixture = TestBed.createComponent(PerformerListComponent);
     component = fixture.componentInstance;
     mockPerformer = [];
-    mockPerformer.push(new PerfomerDetail(
+    mockPerformer.push(new BandDetail(
       1,
+      faker.lorem.word(),
       faker.lorem.sentence(),
       faker.lorem.sentence(),
-      faker.lorem.sentence()
+      faker.date.past(),
+      [],
+      [],
+      []
     ));
     component.performers = mockPerformer;
     fixture.detectChanges();
@@ -41,8 +46,8 @@ describe('PerformerListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("Should have an performer element ", () => {
-    expect(debug.query(By.css(".performer-name")).nativeElement.innerText).toContain(
+  it('Should have an performer element ', () => {
+    expect(debug.query(By.css('.performer-name')).nativeElement.innerText).toContain(
       component.performers[0].name
     );
   });

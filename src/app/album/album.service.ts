@@ -16,4 +16,8 @@ export class AlbumService {
     return this.http.get<AlbumDetail[]>(this.apiUrl);
   }
 
+  getAlbumDetail(idAlbum: number): Observable<AlbumDetail> {
+    return this.http.get<AlbumDetail>(`${this.apiUrl}/${idAlbum}`);
+  }
+
 }

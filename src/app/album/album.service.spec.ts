@@ -36,8 +36,8 @@ describe('Service: Album', () => {
     expect(service).toBeTruthy();
   }));
 
-  it("getPost() should return 10 records", () => {
-    let mockPosts: AlbumDetail[] = [];
+  it("getAlbums() should return 10 records", () => {
+    let mockAlbums: AlbumDetail[] = [];
 
     for (let i = 1; i < 11; i++) {
       let albumDetail = new AlbumDetail(
@@ -46,10 +46,11 @@ describe('Service: Album', () => {
         faker.lorem.sentence(),
         faker.date.between('1900-01-01', '2021-01-05'),
         faker.random.arrayElement(Object.getOwnPropertyNames(Genre)),
-        faker.random.arrayElement(Object.getOwnPropertyNames(Record_label))
+        faker.random.arrayElement(Object.getOwnPropertyNames(Record_label)),
+        faker.lorem.sentence()
       );
 
-      mockPosts.push(albumDetail);
+      mockAlbums.push(albumDetail);
     }
 
     service.getAlbums().subscribe((albums) => {
@@ -58,7 +59,41 @@ describe('Service: Album', () => {
 
     const req = httpMock.expectOne(apiUrl);
     expect(req.request.method).toBe("GET");
-    req.flush(mockPosts);
+    req.flush(mockAlbums);
   });
+
+  it("getAlbumDetail() should return 1 record", () => {
+    let mockAlbums: AlbumDetail[] = [];
+    let idAlbum : number = 100;
+
+    let albumDetail = new AlbumDetail(
+        idAlbum,
+        faker.lorem.sentence(),
+        faker.lorem.sentence(),
+        faker.date.between('1900-01-01', '2021-01-05'),
+        faker.random.arrayElement(Object.getOwnPropertyNames(Genre)),
+        faker.random.arrayElement(Object.getOwnPropertyNames(Record_label)),
+        faker.lorem.sentence()
+    );
+
+    mockAlbums.push(albumDetail);
+
+
+    service.getAlbumDetail(idAlbum).subscribe((album:AlbumDetail) => {
+      let albumDetailList : AlbumDetail = mockAlbums[0];
+      expect(album[0]).not.toEqual(null);
+      expect(album[0]).not.toEqual(undefined);
+      expect(album[0].name).toEqual(albumDetailList.name);
+    });
+
+    const req = httpMock.expectOne(`${apiUrl}/${idAlbum}`);
+    expect(req.request.method).toBe("GET");
+    req.flush(mockAlbums);
+
+  });
+
+
+
+
 
 });

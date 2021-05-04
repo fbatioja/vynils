@@ -1,0 +1,54 @@
+<div *ngIf="performerDetail !== null" class="border mt-5 p-3">
+  <div class="d-flex">
+    <h3 id="performer-name" class="w-100">{{performerDetail.name}}</h3>
+    <button (click)="onClose()" type="button" class="close flex-shrink-1" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-4">
+      <img id="performer-image" class="w-100" src="{{performerDetail.image}}">
+    </div>
+    <div class="col-12 col-sm-8">
+      <dl>
+        <dt>Descripción</dt>
+        <dd>{{performerDetail.description}}</dd>
+        <dt id="creationDate" *ngIf="performerDetail.hasOwnProperty('creationDate')">Fecha de creación:</dt>
+        <dt id="birthDate" *ngIf="performerDetail.hasOwnProperty('birthDate')">Fecha de nacimiento:</dt>
+        <dd>
+          {{performerDetail["birthDate"] | date: 'yyyy-MM-dd'}}
+          {{performerDetail["creationDate"] | date: 'yyyy-MM-dd'}}
+        </dd>
+        <dt>Premios</dt>
+        <dd>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <div *ngIf="performerDetail.albums.length > 0">
+    <h3 class="font-weight-bold col-12 p-0">Albumes</h3>
+    <div class="row">
+      <div class="p-2" *ngFor="let albumes of performerDetail.albums">
+        <div class="card card-performer-detail">
+          <img src="{{albumes.cover}}" class="card-img-top embed-responsive-item" alt="...">
+          <div class="card-body p-2">
+            <h5 class="card-title font-weight-bold mb-1 performer-name">{{albumes.name}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="performerDetail.musicians && performerDetail.musicians.length > 0">
+    <h3 class="font-weight-bold col-12 p-0">Músicos</h3>
+    <div class="row">
+      <div class="p-2" *ngFor="let performer of performerDetail.musicians">
+        <div class="card card-performer-detail">
+          <img src="{{performer.image}}" class="card-img-top embed-responsive-item" alt="...">
+          <div class="card-body p-2">
+            <h5 class="card-title font-weight-bold mb-1 performer-name">{{performer.name}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
