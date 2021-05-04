@@ -1,16 +1,22 @@
 <div class="container-fluid">
-  <div class="row pt-5">
+  <div [hidden]="selected" class="row">
     <div class="p-2" *ngFor="let performer of performers">
-      <div class="card card-album-list">
-        <img src="{{performer.image}}" class="card-img-top embed-responsive-item" alt="...">
-        <div class="card-body p-2">
-          <h5 class="card-title font-weight-bold mb-1 performer-name">{{performer.name}}</h5>
-          <p class="card-text">
-              {{performer["birthDate"] | date: 'yyyy-MM-dd'}}
-              {{performer["creationDate"] | date: 'yyyy-MM-dd'}}
-          </p>
+      <a (click)="onSelected(performer)">
+        <div class="card card-album-list">
+          <img src="{{performer.image}}" class="card-img-top embed-responsive-item" alt="...">
+          <div class="card-body p-2">
+            <h5 class="card-title font-weight-bold mb-1 performer-name">{{performer.name}}</h5>
+            <p class="card-text">
+                {{performer["birthDate"] | date: 'yyyy-MM-dd'}}
+                {{performer["creationDate"] | date: 'yyyy-MM-dd'}}
+            </p>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
+  <div *ngIf="selected">
+    <app-performer-detail [performerDetail]="selectedPerformer" (closeDetail)="closeDetail()"></app-performer-detail>
+  </div>
 </div>
+

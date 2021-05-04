@@ -1,0 +1,8 @@
+img.card-img-top {
+  height: 190px;
+  object-fit: cover;
+  object-position: center center;
+}
+.card-performer-detail {
+  width: 16rem;
+}

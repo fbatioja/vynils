@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Musician} from './musician';
 import {BandDetail} from './banddetail';
 
 @Injectable({
@@ -15,5 +14,9 @@ export class BandService {
 
   getBands(): Observable<BandDetail[]> {
     return this.http.get<BandDetail[]>(this.apiUrl);
+  }
+
+  getBandDetail(id: number): Observable<BandDetail> {
+    return this.http.get<BandDetail>(`${this.apiUrl}/${id}`);
   }
 }
