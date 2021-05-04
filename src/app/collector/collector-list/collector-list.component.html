@@ -1,5 +1,9 @@
 <div class="list-group">
-  <a *ngFor="let collector of collectors" href="#" class="list-group-item list-group-item-action">
+  <a *ngFor="let collector of collectors" href="#" class="list-group-item list-group-item-action" (click)="onSelected(collector)">
     {{collector.name}}
   </a>
+</div>
+
+<div *ngIf="selected">
+    <app-collector-detail [collectorDetail]="selectedCollector"></app-collector-detail>
 </div>

@@ -1,0 +1,33 @@
+
+<div class="container-fluid">
+  <div class="row pt-5">
+    <div class="p-2" *ngFor="let performer of collectorDetail.favoritePerformers">
+      <div class="card card-album-list">
+        <img src="{{performer.image}}" class="card-img-top embed-responsive-item" alt="...">
+        <div class="card-body p-2">
+          <h5 class="card-title font-weight-bold mb-1 performer-name">{{performer.name}}</h5>
+          <p class="card-text">
+              {{performer["birthDate"] | date: 'yyyy-MM-dd'}}
+              {{performer["creationDate"] | date: 'yyyy-MM-dd'}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row pt-5">
+    <div class="col p-2" *ngFor="let albumC of collectorDetail.collectorAlbums">
+      <div class="card card-album-list">
+        <h5 class="card-title font-weight-bold mb-1 album-name">Album: {{albumC.album.name}}</h5>
+        <div class="card-body p-2">
+          <h5 class="card-title font-weight-bold mb-1 album-name">Precio: {{albumC.price}}</h5>
+          <h5 class="card-title font-weight-bold mb-1 album-name">Estado: {{albumC.status}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Collector } from '../collector';
 import { CollectorService } from '../collector.service';
 import { CollectorDetail } from '../collectordetail';
 
@@ -11,6 +12,8 @@ export class CollectorListComponent implements OnInit {
 
   constructor(private collectorService: CollectorService) { }
   collectors: Array<CollectorDetail>;
+  selected = false;
+  selectedCollector: Collector;
 
   ngOnInit() {
     this.getCollectors();
@@ -21,6 +24,11 @@ export class CollectorListComponent implements OnInit {
       .subscribe(collectors => {
         this.collectors = collectors;
       });
+  }
+
+  onSelected(collector: Collector): void {
+    this.selected = true;
+    this.selectedCollector = collector;
   }
 
 }
