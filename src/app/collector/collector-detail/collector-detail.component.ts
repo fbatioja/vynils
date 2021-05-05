@@ -20,7 +20,6 @@ export class CollectorDetailComponent implements OnInit {
   constructor(private collectorService: CollectorService) { }
 
   ngOnInit(): void {
-    console.log(this.collectorDetail.id);
     this.getCollectorAlbums();
     this.getCollectorPerformers();
   }
@@ -36,7 +35,6 @@ export class CollectorDetailComponent implements OnInit {
     this.collectorService.getCollectorPerformers(this.collectorDetail.id)
     .subscribe(performer => {
       this.collectorPerformers = performer;
-      console.log(performer);
     });
   }
 

@@ -10,9 +10,9 @@ import { CollectorDetailComponent } from './collector-detail.component';
 describe('CollectorDetailComponent', () => {
   let component: CollectorDetailComponent;
   let fixture: ComponentFixture<CollectorDetailComponent>;
-
   let debug: DebugElement;
-  let mockCollectors: Array<CollectorDetail> = [];
+  let mockCollectors: CollectorDetail;
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -25,15 +25,15 @@ describe('CollectorDetailComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CollectorDetailComponent);
     component = fixture.componentInstance;
-    mockCollectors.push(new CollectorDetail(
+    mockCollectors = new CollectorDetail(
       1,
       faker.lorem.sentence(),
       faker.datatype.number(),
       faker.internet.email(),
       null,
       null,
-    ));
-    component.collectors = mockCollectors;
+    );
+    component.collectorDetail = mockCollectors;
     fixture.detectChanges();
     debug = fixture.debugElement;
   });
@@ -42,9 +42,9 @@ describe('CollectorDetailComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Should have buttons with the collector name', () => {
-    const tag = debug.query(By.css('a')).nativeElement;
-    expect(tag.innerText).toContain(mockCollectors[0].name);
+  it('Should have title with the collector name', () => {
+    const tag = debug.query(By.css('h3')).nativeElement;
+    expect(tag.innerText).toContain(mockCollectors.name);
   });
 
 });
