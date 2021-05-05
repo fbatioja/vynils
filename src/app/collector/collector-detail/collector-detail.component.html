@@ -1,0 +1,38 @@
+
+<div class="container-fluid">
+  <div class="d-flex">
+    <h3> {{collectorDetail.name}} </h3>
+    <button (click)="onClose()" type="button" class="close flex-shrink-1 float-end" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <h4 class="font-weight-bold col-12 p-0">Músicos Favoritos:</h4>
+  <div class="row">
+    <div class="p-2" *ngFor="let performer of collectorPerformers">
+      <div class="card card-collector-detail">
+        <img src="{{performer.image}}" class="card-img-top embed-responsive-item" alt="...">
+        <div class="card-body p-2">
+          <h5 class="card-title font-weight-bold mb-1 performer-name">{{performer.name}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="font-weight-bold col-12 p-0">Albumes Ofrecidos:</h4>
+  <div class="row">
+    <div class="p-2" *ngFor="let collectorAlbum of collectorAlbums">
+      <div class="card card-collector-detail">
+        <img src="{{collectorAlbum.album.cover}}" class="card-img-top embed-responsive-item" alt="...">
+        <div class="card-body p-2">
+          <h5 class="card-title font-weight-bold mb-1 performer-name">{{collectorAlbum.album.name}}</h5>
+          <span>Precio: ${{collectorAlbum.price}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
