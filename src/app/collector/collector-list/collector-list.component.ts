@@ -15,7 +15,7 @@ export class CollectorListComponent implements OnInit {
   selected = false;
   selectedCollector: Collector;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getCollectors();
   }
 
@@ -29,6 +29,10 @@ export class CollectorListComponent implements OnInit {
   onSelected(collector: Collector): void {
     this.selected = true;
     this.selectedCollector = collector;
+  }
+
+  closeDetail(): void {
+    this.selected = false;
   }
 
 }
