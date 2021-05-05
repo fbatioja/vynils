@@ -5,34 +5,35 @@ import { DebugElement } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CollectorDetail } from '../collectordetail';
 import faker from 'faker';
-import { CollectorListComponent } from './collector-list.component';
+import { CollectorDetailComponent } from './collector-detail.component';
 
-describe('CollectorListComponent', () => {
-  let component: CollectorListComponent;
-  let fixture: ComponentFixture<CollectorListComponent>;
+describe('CollectorDetailComponent', () => {
+  let component: CollectorDetailComponent;
+  let fixture: ComponentFixture<CollectorDetailComponent>;
   let debug: DebugElement;
-  let mockCollectors: Array<CollectorDetail> = [];
+  let mockCollectors: CollectorDetail;
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ HttpClientModule ],
-      declarations: [ CollectorListComponent ]
+      declarations: [ CollectorDetailComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CollectorListComponent);
+    fixture = TestBed.createComponent(CollectorDetailComponent);
     component = fixture.componentInstance;
-    mockCollectors.push(new CollectorDetail(
+    mockCollectors = new CollectorDetail(
       1,
       faker.lorem.sentence(),
       faker.datatype.number(),
       faker.internet.email(),
       null,
       null,
-    ));
-    component.collectors = mockCollectors;
+    );
+    component.collectorDetail = mockCollectors;
     fixture.detectChanges();
     debug = fixture.debugElement;
   });
@@ -41,9 +42,9 @@ describe('CollectorListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Should have buttons with the collector name', () => {
-    const tag = debug.query(By.css('a')).nativeElement;
-    expect(tag.innerText).toContain(mockCollectors[0].name);
+  it('Should have title with the collector name', () => {
+    const tag = debug.query(By.css('h3')).nativeElement;
+    expect(tag.innerText).toContain(mockCollectors.name);
   });
 
 });
