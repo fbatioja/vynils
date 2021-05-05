@@ -1,6 +1,8 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component,EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CollectorDetail } from '../collectordetail';
-
+import { CollectorAlbum } from '../collectoralbum';
+import { PerfomerDetail } from '../../performer/performerdetail';
+import { CollectorService } from '../collector.service';
 @Component({
   selector: 'app-collector-detail',
   templateUrl: './collector-detail.component.html',
@@ -9,17 +11,37 @@ import { CollectorDetail } from '../collectordetail';
 export class CollectorDetailComponent implements OnInit {
 
   @Input() collectorDetail: CollectorDetail;
-  // @Output()
-  // closeDetail = new EventEmitter<void>();
+  @Output()
+  closeDetail = new EventEmitter<void>();
 
-  constructor() { }
+  collectorAlbums: CollectorAlbum[] = [];
+  collectorPerformers: PerfomerDetail[] = [];
 
-  ngOnInit() {
+  constructor(private collectorService: CollectorService) { }
+
+  ngOnInit(): void {
     console.log(this.collectorDetail.id);
+    this.getCollectorAlbums();
+    this.getCollectorPerformers();
   }
 
-  // onClose(): void {
-  //   this.closeDetail.emit();
-  // }
+  getCollectorAlbums(): void {
+    this.collectorService.getCollectorAlbums(this.collectorDetail.id)
+    .subscribe(albums => {
+      this.collectorAlbums = albums;
+    });
+  }
+
+  getCollectorPerformers(): void {
+    this.collectorService.getCollectorPerformers(this.collectorDetail.id)
+    .subscribe(performer => {
+      this.collectorPerformers = performer;
+      console.log(performer);
+    });
+  }
+
+  onClose(): void {
+    this.closeDetail.emit();
+  }
 
 }
