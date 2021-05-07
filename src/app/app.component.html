@@ -37,7 +37,7 @@
          [attr.aria-controls] = "componentActive == 'albums'? null: 'v-pills-albums'"
          [attr.aria-selected] = "componentActive == 'albums'? 'true': 'false'">Álbumes</a>
 
-      <a class="nav-link" id="v-pills-artistas-tab" data-toggle="pill" href="#v-pills-artistas" role="tab"
+      <a routerLink="/performers" class="nav-link" id="v-pills-artistas-tab" data-toggle="pill" href="#v-pills-artistas" role="tab"
          [class.active]="componentActive == 'performers'"
          [attr.aria-controls] = "componentActive == 'performers'? null: 'v-pills-artistas'"
          [attr.aria-selected] = "componentActive == 'performers'? 'true': 'false'">Artistas</a>

@@ -4,6 +4,7 @@ import {HttpClientTestingModule, HttpTestingController} from '@angular/common/ht
 import {environment} from '../../environments/environment';
 import {MusicianDetail} from './musiciandetail';
 import faker from 'faker';
+import {PerformerPrizes} from '../prize/prizedetail';
 
 
 describe('MusicianService', () => {
@@ -65,7 +66,10 @@ describe('MusicianService', () => {
       faker.lorem.sentence(),
       faker.date.between('1900-01-01', '2021-01-05'),
       null,
-      null
+      [new PerformerPrizes(
+        faker.datatype.number(),
+        faker.date.past()
+      )]
     );
 
     service.getMusicianDetail(id).subscribe((musician) => {
