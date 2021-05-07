@@ -32,10 +32,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Black vynils');
   });
 
-  it('should render title', () => {
+  it('should render navegation menu', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content h1').textContent).toContain('Black vynils');
+    expect(compiled.querySelector('#navegation-vertical')).toBeTruthy();
   });
 });

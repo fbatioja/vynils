@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Black vynils';
-  componentActive = 'prizes';
+  componentActive = 'albums';
 
-  viewComponent(component: string): void {
-    this.componentActive = component;
-  }
+  constructor() { }
+
 }
