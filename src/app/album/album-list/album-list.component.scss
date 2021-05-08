@@ -20,7 +20,7 @@ h5.card-title
 
 .panel-detalle
 {
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .button-close {
@@ -34,4 +34,9 @@ h5.card-title
   position: absolute;
   z-index: 1;
   margin-top: -1.5em;
+}
+
+.album-name
+{
+  font-size: large;
 }

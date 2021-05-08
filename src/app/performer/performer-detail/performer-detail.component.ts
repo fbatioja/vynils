@@ -21,4 +21,5 @@ export class PerformerDetailComponent implements OnInit {
   onClose(): void {
     this.closeDetail.emit();
   }
+
 }

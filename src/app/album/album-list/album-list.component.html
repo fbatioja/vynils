@@ -2,9 +2,9 @@
   <div class="row pt-5">
     <div class="col p-2" *ngFor="let album of albums">
       <div class="card card-album-list">
-        <img src="{{album.cover}}" class="card-img-top" alt="..." (click)="onSelected(album)">
+        <img src="{{album.cover}}" class="card-img-top" alt="Fotografia albúm {{album.name}}" (click)="onSelected(album)">
         <div class="card-body p-2">
-          <h5 class="card-title font-weight-bold mb-1 album-name">{{album.name}}</h5>
+          <span class="card-title font-weight-bold mb-1 album-name">{{album.name}}</span>
           <p class="card-text" *ngFor="let performer of album.performers">
               {{performer.name}}
           </p>
