@@ -3,13 +3,15 @@ img.card-img-top
   height: 190px;
   object-fit: cover;
   object-position: center center;
+  cursor: pointer;
 }
 
-h5.card-title
+.card-title
 {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  font-size: large;
 }
 
 .card-performer-list

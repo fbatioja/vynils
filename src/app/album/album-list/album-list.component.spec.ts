@@ -48,10 +48,32 @@ describe('AlbumListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("Should have an performer element ", () => {
+  it("Should have an album element ", () => {
     expect(debug.query(By.css(".album-name")).nativeElement.innerText).toContain(
       component.albums[0].name
     );
+  });
+
+  it("Select album", () => {
+    component.onSelected(mockAlbums[0]);
+    expect(component.selected).toBeTrue();
+    expect(component.selectedAlbum).toEqual(mockAlbums[0]);
+  });
+
+  it("Close detail album", () => {
+    component.closeDetail();
+    expect(component.selected).toBeFalse();
+  });
+
+
+  it("Consume Get albums", () => {
+    component.getAlbums();
+    expect(component.albums.length).toBeGreaterThan(0);
+  });
+
+  it("initialize component", () => {
+    component.ngOnInit();
+    expect(component.albums.length).toBeGreaterThan(0);
   });
 
 });

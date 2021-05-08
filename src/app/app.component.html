@@ -3,10 +3,11 @@
     <div class="col-md-4 col-8 p-0 site-branding">
       <a href="/" class="custom-logo-link" rel="home">
         <img src="assets/logo.png" height="60" alt="Logo de BlackVynils">
-        <span id="text-logo">{{title}}</span>
+        <h1 id="text-logo">{{title}}</h1>
       </a>
     </div>
-    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Abrir o cerrar navegación">
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader"
+      aria-controls="navbarHeader" aria-expanded="false" aria-label="Abrir o cerrar navegación">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="col-lg-8 navbar-collapse collapse d-lg-inline-block mt-3 mt-lg-0" id="navbarHeader">
@@ -32,23 +33,24 @@
 <div id="page" class="row">
   <nav id="navegation-vertical" class="col-lg-2 col-md-4 mt-5">
     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link" id="v-pills-albumes-tab" data-toggle="pill" href="#v-pills-albumes" role="tab"
-         [class.active]="componentActive == 'albums'"
-         [attr.aria-controls] = "componentActive == 'albums'? null: 'v-pills-albums'"
-         [attr.aria-selected] = "componentActive == 'albums'? 'true': 'false'">Álbumes</a>
+      <a routerLink="/albums" class="nav-link" id="v-pills-albumes-tab" data-toggle="pill" href="#v-pills-albumes"
+        role="tab" [class.active]="componentActive == 'albums'"
+        [attr.aria-controls]="componentActive == 'albums'? null: 'v-pills-albums'"
+        [attr.aria-selected]="componentActive == 'albums'? 'true': 'false'">Álbumes</a>
 
-      <a routerLink="/performers" class="nav-link" id="v-pills-artistas-tab" data-toggle="pill" href="#v-pills-artistas" role="tab"
-         [class.active]="componentActive == 'performers'"
-         [attr.aria-controls] = "componentActive == 'performers'? null: 'v-pills-artistas'"
-         [attr.aria-selected] = "componentActive == 'performers'? 'true': 'false'">Artistas</a>
+      <a routerLink="/performers" class="nav-link" id="v-pills-artistas-tab" data-toggle="pill" href="#v-pills-artistas"
+        role="tab" [class.active]="componentActive == 'performers'"
+        [attr.aria-controls]="componentActive == 'performers'? null: 'v-pills-artistas'"
+        [attr.aria-selected]="componentActive == 'performers'? 'true': 'false'">Artistas</a>
+
       <a class="nav-link" id="v-pills-coleccionistas-tab" data-toggle="pill" href="#v-pills-coleccionistas" role="tab"
-         [class.active]="componentActive == 'collectors'"
-         [attr.aria-controls] = "componentActive == 'collectors'? null: 'v-pills-coleccionistas'"
-         [attr.aria-selected] = "componentActive == 'collectors'? 'true': 'false'">Coleccionistas</a>
+        [class.active]="componentActive == 'collectors'"
+        [attr.aria-controls]="componentActive == 'collectors'? null: 'v-pills-coleccionistas'"
+        [attr.aria-selected]="componentActive == 'collectors'? 'true': 'false'">Coleccionistas</a>
       <a class="nav-link" id="v-pills-premios-tab" data-toggle="pill" href="#v-pills-premios" role="tab"
-         [class.active]="componentActive == 'prizes'"
-         [attr.aria-controls] = "componentActive == 'prizes'? null: 'v-pills-prizes'"
-         [attr.aria-selected] = "componentActive == 'prizes'? 'true': 'false'">Premios</a>
+        [class.active]="componentActive == 'prizes'"
+        [attr.aria-controls]="componentActive == 'prizes'? null: 'v-pills-prizes'"
+        [attr.aria-selected]="componentActive == 'prizes'? 'true': 'false'">Premios</a>
     </div>
   </nav>
   <main class="content col-lg-10 col-md-8" role="main">
