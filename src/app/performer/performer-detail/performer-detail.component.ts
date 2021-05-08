@@ -22,8 +22,4 @@ export class PerformerDetailComponent implements OnInit {
     this.closeDetail.emit();
   }
 
-  @Output()
-  getTypeObject(){
-    console.log(typeof this.performerDetail)
-  }
 }

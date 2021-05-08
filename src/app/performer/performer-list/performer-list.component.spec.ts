@@ -64,4 +64,22 @@ describe('PerformerListComponent', () => {
       expect(attributes.hasOwnProperty('hidden')).toBeFalse();
     });
   });
+
+  it("Select performet", () => {
+    component.onSelected(mockPerformer[0]);
+    expect(component.selected).toBeTrue();
+    expect(component.selectedPerformer).toEqual(mockPerformer[0]);
+  });
+
+  it("Close detail performer", () => {
+    component.closeDetail();
+    expect(component.selected).toBeFalse();
+  });
+
+
+  it("Consume get performers", () => {
+    component.getPerformer();
+    expect(component.performers.length).toBeGreaterThan(0);
+  });
+
 });
