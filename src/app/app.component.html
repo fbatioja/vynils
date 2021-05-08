@@ -1,21 +1,57 @@
-<div class="content" role="main">
-  <div class="container">
-    <h1>Black vynils</h1>
-    <button type="button" class="btn btn-secondary" (click)="viewComponent('prizes')">Listado Premios</button>
-    <button type="button" class="btn btn-secondary" (click)="viewComponent('albumes')">Listado Albumes</button>
-    <button type="button" class="btn btn-secondary" (click)="viewComponent('artistas')">Listado Artistas</button>
-    <button type="button" class="btn btn-secondary" (click)="viewComponent('coleccionistas')">Listado Coleccionistas</button>
-    <div *ngIf="componentActive == 'prizes'">
-      <app-prizes-list></app-prizes-list>
+<header class="site-header">
+  <div id="content-header" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="col-md-4 col-8 p-0 site-branding">
+      <a href="/" class="custom-logo-link" rel="home">
+        <img src="assets/logo.png" height="60" alt="Logo de BlackVynils">
+        <span id="text-logo">{{title}}</span>
+      </a>
     </div>
-    <div *ngIf="componentActive == 'albumes'">
-      <app-album-list></app-album-list>
-    </div>
-    <div *ngIf="componentActive == 'artistas'">
-      <app-performer-list></app-performer-list>
-    </div>
-    <div *ngIf="componentActive == 'coleccionistas'">
-      <app-collector-list></app-collector-list>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Abrir o cerrar navegación">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="col-lg-8 navbar-collapse collapse d-lg-inline-block mt-3 mt-lg-0" id="navbarHeader">
+      <div class="float-lg-left">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+          <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+      </div>
+      <div class="float-lg-right">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Inicio de sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Registrarse</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
+</header>
+<div id="page" class="row">
+  <nav id="navegation-vertical" class="col-lg-2 col-md-4 mt-5">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link" id="v-pills-albumes-tab" data-toggle="pill" href="#v-pills-albumes" role="tab"
+         [class.active]="componentActive == 'albums'"
+         [attr.aria-controls] = "componentActive == 'albums'? null: 'v-pills-albums'"
+         [attr.aria-selected] = "componentActive == 'albums'? 'true': 'false'">Álbumes</a>
+
+      <a routerLink="/performers" class="nav-link" id="v-pills-artistas-tab" data-toggle="pill" href="#v-pills-artistas" role="tab"
+         [class.active]="componentActive == 'performers'"
+         [attr.aria-controls] = "componentActive == 'performers'? null: 'v-pills-artistas'"
+         [attr.aria-selected] = "componentActive == 'performers'? 'true': 'false'">Artistas</a>
+      <a class="nav-link" id="v-pills-coleccionistas-tab" data-toggle="pill" href="#v-pills-coleccionistas" role="tab"
+         [class.active]="componentActive == 'collectors'"
+         [attr.aria-controls] = "componentActive == 'collectors'? null: 'v-pills-coleccionistas'"
+         [attr.aria-selected] = "componentActive == 'collectors'? 'true': 'false'">Coleccionistas</a>
+      <a class="nav-link" id="v-pills-premios-tab" data-toggle="pill" href="#v-pills-premios" role="tab"
+         [class.active]="componentActive == 'prizes'"
+         [attr.aria-controls] = "componentActive == 'prizes'? null: 'v-pills-prizes'"
+         [attr.aria-selected] = "componentActive == 'prizes'? 'true': 'false'">Premios</a>
+    </div>
+  </nav>
+  <main class="content col-lg-10 col-md-8" role="main">
+    <router-outlet></router-outlet>
+  </main>
 </div>

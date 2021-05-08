@@ -52,4 +52,16 @@ describe('PerformerListComponent', () => {
     );
   });
 
+  it('Should called onSelected when click in a card', () => {
+    expect(debug.query(By.css('a'))).toBeTruthy();
+    let card  = fixture.debugElement.nativeElement.querySelector('a');
+    card.click();
+    fixture.whenStable().then(() => {
+      expect(component.onSelected).toHaveBeenCalled();
+      expect(component.selected).toBeTrue();
+      component.closeDetail();
+      let attributes = debug.query(By.css('#container-performer-list')).attributes;
+      expect(attributes.hasOwnProperty('hidden')).toBeFalse();
+    });
+  });
 });

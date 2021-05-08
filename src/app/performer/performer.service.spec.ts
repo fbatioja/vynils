@@ -13,7 +13,6 @@ describe('Service: Performer', () => {
     });
   });
 
-
   it('should ...', inject([PerformerService], (service: PerformerService) => {
     expect(service).toBeTruthy();
   }));
