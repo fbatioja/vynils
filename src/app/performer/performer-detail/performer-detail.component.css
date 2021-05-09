@@ -2,7 +2,12 @@ img.card-img-top {
   height: 190px;
   object-fit: cover;
   object-position: center center;
+  cursor: pointer;
 }
 .card-performer-detail {
   width: 16rem;
+}
+
+.card-title{
+  font-size: larger;
 }
