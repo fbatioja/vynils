@@ -21,7 +21,7 @@
     <div class="col-lg-6">
       <h3 class="font-weight-bold col-12 p-0">Artistas</h3>
       <div class="card col-lg-6 col-sm-12 p-0" *ngFor="let performer of albumDetail.performers">
-        <img src="{{performer.image}}" class="img-photo-list" alt="...">
+        <img src="{{performer.image}}" class="img-photo-list" alt="Fotografia de {{performer.name}}">
         <div class="card-body info-performer">
           <p class="card-text">{{performer.name}}</p>
         </div>
