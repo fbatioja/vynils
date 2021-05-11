@@ -1,9 +1,9 @@
-<div class="container-fluid">
+<div class="container-fluid pt-5">
   <div id='container-performer-list' [hidden]="selected" class="row">
     <div class="p-2" *ngFor="let performer of performers">
       <a (click)="onSelected(performer)">
         <div class="card card-performer-list">
-          <img src="{{performer.image}}" class="card-img-top embed-responsive-item" alt="...">
+          <img src="{{performer.image}}" class="card-img-top embed-responsive-item" alt="Fotografia de {{performer.name}}">
           <div class="card-body p-2">
             <h2 class="card-title font-weight-bold mb-1 performer-name">{{performer.name}}</h2>
             <p class="card-text">

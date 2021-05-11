@@ -47,7 +47,7 @@
         [class.active]="componentActive == 'collectors'"
         [attr.aria-controls]="componentActive == 'collectors'? null: 'v-pills-coleccionistas'"
         [attr.aria-selected]="componentActive == 'collectors'? 'true': 'false'">Coleccionistas</a>
-      <a class="nav-link" id="v-pills-premios-tab" data-toggle="pill" href="#v-pills-premios" role="tab"
+      <a routerLink="/prizes" class="nav-link" id="v-pills-premios-tab" data-toggle="pill" href="#v-pills-premios" role="tab"
         [class.active]="componentActive == 'prizes'"
         [attr.aria-controls]="componentActive == 'prizes'? null: 'v-pills-prizes'"
         [attr.aria-selected]="componentActive == 'prizes'? 'true': 'false'">Premios</a>
